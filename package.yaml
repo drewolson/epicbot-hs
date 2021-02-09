@@ -1,0 +1,93 @@
+name:                epicbot
+version:             0.1.0.0
+github:              "drewolson/epicbot-hs"
+license:             MIT
+author:              "Drew Olson"
+maintainer:          "drew@drewolson.org"
+copyright:           "2021 Drew Olson"
+
+extra-source-files:
+- README.md
+
+description:         Please see the README on GitHub at <https://github.com/drewolson/epicbot-hs#readme>
+
+dependencies:
+- MonadRandom
+- SHA
+- aeson
+- base >= 4.7 && < 5
+- bytestring
+- containers
+- full-text-search
+- generic-lens
+- http-conduit
+- http-types
+- lens
+- mtl
+- random-shuffle
+- scotty
+- tagsoup
+- text
+- time
+- transformers
+- unordered-containers
+- uri-encode
+- utf8-string
+- uuid
+- wai
+- wai-extra
+
+default-extensions:
+- DataKinds
+- DeriveGeneric
+- FlexibleContexts
+- FlexibleInstances
+- GeneralizedNewtypeDeriving
+- InstanceSigs
+- LambdaCase
+- MultiParamTypeClasses
+- NamedFieldPuns
+- OverloadedStrings
+- ScopedTypeVariables
+- TypeApplications
+- TypeOperators
+
+library:
+  source-dirs: src
+
+ghc-options:
+- -Werror
+- -Wall
+- -Wcompat
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wredundant-constraints
+
+executables:
+  epicbot-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - epicbot
+
+tests:
+  epicbot-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - QuickCheck
+    - epicbot
+    - generic-random
+    - hspec
+    - hspec-wai
+    - raw-strings-qq
+    default-extensions:
+    - QuasiQuotes

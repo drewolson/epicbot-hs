@@ -1,0 +1,11 @@
+resolver: lts-17.0
+
+packages:
+- .
+
+extra-deps:
+- full-text-search-0.2.1.4
+
+docker:
+  enable: false
+  image: haskell:8.10.2-buster

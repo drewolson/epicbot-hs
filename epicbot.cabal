@@ -1,0 +1,172 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.3.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: e2e85b7b1d5a241b180b31bb220f78468a17f1c04e54838252421e719f170ead
+
+name:           epicbot
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/drewolson/epicbot-hs#readme>
+homepage:       https://github.com/drewolson/epicbot-hs#readme
+bug-reports:    https://github.com/drewolson/epicbot-hs/issues
+author:         Drew Olson
+maintainer:     drew@drewolson.org
+copyright:      2021 Drew Olson
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/drewolson/epicbot-hs
+
+library
+  exposed-modules:
+      Epicbot
+      Epicbot.App
+      Epicbot.Capability.Has
+      Epicbot.Capability.MonadApp
+      Epicbot.Capability.MonadSignature
+      Epicbot.Data.Card
+      Epicbot.Data.Env
+      Epicbot.Data.Env.GlobalEnv
+      Epicbot.Data.Env.RequestEnv
+      Epicbot.Data.Index
+      Epicbot.Data.Index.SearchEngine
+      Epicbot.Data.OnlineStatus
+      Epicbot.Data.Slack.Action
+      Epicbot.Data.Slack.Attachment
+      Epicbot.Data.Slack.CommandResponse
+      Epicbot.Data.Slack.InteractivePayload
+      Epicbot.Data.Slack.Signature
+      Epicbot.Data.Slack.SigningSecret
+      Epicbot.Data.Slack.Timestamp
+      Epicbot.Html.Parser
+      Epicbot.Html.Scraper
+      Epicbot.Web.Middleware
+      Epicbot.Web.Middleware.SignatureCheck
+      Epicbot.Web.Middleware.SslCheck
+      Epicbot.Web.Router
+      Epicbot.Web.Service.CommandService
+      Epicbot.Web.Service.InteractiveService
+      Epicbot.Web.Util
+      Epicbot.Wiring
+  other-modules:
+      Paths_epicbot
+  hs-source-dirs:
+      src
+  default-extensions: DataKinds DeriveGeneric FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving InstanceSigs LambdaCase MultiParamTypeClasses NamedFieldPuns OverloadedStrings ScopedTypeVariables TypeApplications TypeOperators
+  ghc-options: -Werror -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+  build-depends:
+      MonadRandom
+    , SHA
+    , aeson
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , full-text-search
+    , generic-lens
+    , http-conduit
+    , http-types
+    , lens
+    , mtl
+    , random-shuffle
+    , scotty
+    , tagsoup
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , uri-encode
+    , utf8-string
+    , uuid
+    , wai
+    , wai-extra
+  default-language: Haskell2010
+
+executable epicbot-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_epicbot
+  hs-source-dirs:
+      app
+  default-extensions: DataKinds DeriveGeneric FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving InstanceSigs LambdaCase MultiParamTypeClasses NamedFieldPuns OverloadedStrings ScopedTypeVariables TypeApplications TypeOperators
+  ghc-options: -Werror -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      MonadRandom
+    , SHA
+    , aeson
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , epicbot
+    , full-text-search
+    , generic-lens
+    , http-conduit
+    , http-types
+    , lens
+    , mtl
+    , random-shuffle
+    , scotty
+    , tagsoup
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , uri-encode
+    , utf8-string
+    , uuid
+    , wai
+    , wai-extra
+  default-language: Haskell2010
+
+test-suite epicbot-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Test.Epicbot.Data.Slack.ActionSpec
+      Test.Epicbot.Data.Slack.TimestampSpec
+      Test.Epicbot.Html.ParserSpec
+      Test.Epicbot.Web.RouterSpec
+      Test.Support.TestApp
+      Paths_epicbot
+  hs-source-dirs:
+      test
+  default-extensions: DataKinds DeriveGeneric FlexibleContexts FlexibleInstances GeneralizedNewtypeDeriving InstanceSigs LambdaCase MultiParamTypeClasses NamedFieldPuns OverloadedStrings ScopedTypeVariables TypeApplications TypeOperators QuasiQuotes
+  ghc-options: -Werror -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      MonadRandom
+    , QuickCheck
+    , SHA
+    , aeson
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , epicbot
+    , full-text-search
+    , generic-lens
+    , generic-random
+    , hspec
+    , hspec-wai
+    , http-conduit
+    , http-types
+    , lens
+    , mtl
+    , random-shuffle
+    , raw-strings-qq
+    , scotty
+    , tagsoup
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , uri-encode
+    , utf8-string
+    , uuid
+    , wai
+    , wai-extra
+  default-language: Haskell2010
