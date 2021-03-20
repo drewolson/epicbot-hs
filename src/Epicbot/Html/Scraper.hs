@@ -4,11 +4,11 @@ module Epicbot.Html.Scraper
 where
 
 import Data.Text (Text)
-import qualified Data.Text as Text
-import qualified Data.Text.Lazy as LazyText
-import qualified Data.Text.Lazy.Encoding as LazyText
+import Data.Text qualified as Text
+import Data.Text.Lazy qualified as LazyText
+import Data.Text.Lazy.Encoding qualified as LazyText
 import Epicbot.Data.OnlineStatus (OnlineStatus (..))
-import qualified Network.HTTP.Simple as HTTP
+import Network.HTTP.Simple qualified as HTTP
 
 scrape :: OnlineStatus -> IO Text
 scrape = \case

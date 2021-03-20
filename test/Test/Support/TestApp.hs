@@ -11,13 +11,13 @@ import Data.Text (Text)
 import Epicbot.Capability.Has (Has (..))
 import Epicbot.Capability.MonadApp (MonadApp)
 import Epicbot.Capability.MonadSignature (MonadSignature (..))
-import qualified Epicbot.Data.Env.GlobalEnv as GlobalEnv
+import Epicbot.Data.Env.GlobalEnv qualified as GlobalEnv
 import Epicbot.Data.Index (Index)
 import Epicbot.Data.Slack.Signature (Signature)
 import Epicbot.Data.Slack.SigningSecret (SigningSecret)
 import Epicbot.Data.Slack.Timestamp (Timestamp)
-import qualified Epicbot.Web.Router as Router
-import qualified Epicbot.Wiring as Wiring
+import Epicbot.Web.Router qualified as Router
+import Epicbot.Wiring qualified as Wiring
 import Network.Wai (Application)
 import Web.Scotty.Trans (scottyAppT)
 

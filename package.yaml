@@ -43,6 +43,7 @@ default-extensions:
 - FlexibleContexts
 - FlexibleInstances
 - GeneralizedNewtypeDeriving
+- ImportQualifiedPost
 - InstanceSigs
 - LambdaCase
 - MultiParamTypeClasses

@@ -8,9 +8,9 @@ where
 import Data.Aeson (Options (..), ToJSON (..), Value, defaultOptions, genericToJSON)
 import Data.Text (Text)
 import Epicbot.Data.Card (Card)
-import qualified Epicbot.Data.Card as Card
+import Epicbot.Data.Card qualified as Card
 import Epicbot.Data.Slack.Action (Action)
-import qualified Epicbot.Data.Slack.Action as Action
+import Epicbot.Data.Slack.Action qualified as Action
 import GHC.Generics (Generic)
 
 data Attachment = Attachment

@@ -6,7 +6,7 @@ where
 import Data.Maybe (mapMaybe)
 import Data.Text (Text, isSuffixOf, pack)
 import Epicbot.Data.Card (Card)
-import qualified Epicbot.Data.Card as Card
+import Epicbot.Data.Card qualified as Card
 import Text.HTML.TagSoup (Tag, fromAttrib, innerText, parseTags, partitions, (~/=), (~==))
 
 parseUrls :: [Tag Text] -> [Text]

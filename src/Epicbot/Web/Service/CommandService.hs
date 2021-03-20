@@ -6,9 +6,9 @@ where
 import Data.Text (Text)
 import Epicbot.Capability.Has (grab)
 import Epicbot.Capability.MonadApp (MonadApp)
-import qualified Epicbot.Data.Index as Index
+import Epicbot.Data.Index qualified as Index
 import Epicbot.Data.Slack.CommandResponse (CommandResponse)
-import qualified Epicbot.Data.Slack.CommandResponse as CommandResponse
+import Epicbot.Data.Slack.CommandResponse qualified as CommandResponse
 
 handle :: MonadApp m => Text -> m CommandResponse
 handle command = do

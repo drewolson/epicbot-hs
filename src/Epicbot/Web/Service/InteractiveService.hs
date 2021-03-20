@@ -8,11 +8,11 @@ import Epicbot.Capability.Has (grab)
 import Epicbot.Capability.MonadApp (MonadApp)
 import Epicbot.Data.Card (Card)
 import Epicbot.Data.Index (Index)
-import qualified Epicbot.Data.Index as Index
+import Epicbot.Data.Index qualified as Index
 import Epicbot.Data.Slack.CommandResponse (CommandResponse)
-import qualified Epicbot.Data.Slack.CommandResponse as CommandResponse
+import Epicbot.Data.Slack.CommandResponse qualified as CommandResponse
 import Epicbot.Data.Slack.InteractivePayload (InteractivePayload)
-import qualified Epicbot.Data.Slack.InteractivePayload as InteractivePayload
+import Epicbot.Data.Slack.InteractivePayload qualified as InteractivePayload
 
 handle :: MonadApp m => InteractivePayload -> m (Maybe CommandResponse)
 handle payload = do

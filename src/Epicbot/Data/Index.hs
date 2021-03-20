@@ -9,13 +9,13 @@ where
 
 import Control.Monad.Random.Class (MonadRandom)
 import Data.Map (Map)
-import qualified Data.Map as Map
+import Data.Map qualified as Map
 import Data.Maybe (mapMaybe)
 import Data.Text (Text)
 import Epicbot.Data.Card (Card)
-import qualified Epicbot.Data.Card as Card
+import Epicbot.Data.Card qualified as Card
 import Epicbot.Data.Index.SearchEngine (SearchEngine)
-import qualified Epicbot.Data.Index.SearchEngine as SearchEngine
+import Epicbot.Data.Index.SearchEngine qualified as SearchEngine
 import System.Random.Shuffle (shuffleM)
 
 data Index = Index

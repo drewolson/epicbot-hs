@@ -9,9 +9,9 @@ where
 import Data.Aeson (Options (..), ToJSON (..), Value, defaultOptions, genericToJSON)
 import Data.Text (Text)
 import Epicbot.Data.Card (Card)
-import qualified Epicbot.Data.Card as Card
+import Epicbot.Data.Card qualified as Card
 import Epicbot.Data.Slack.Attachment (Attachment)
-import qualified Epicbot.Data.Slack.Attachment as Attachment
+import Epicbot.Data.Slack.Attachment qualified as Attachment
 import GHC.Generics (Generic)
 
 data ResponseType

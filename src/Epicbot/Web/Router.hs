@@ -3,18 +3,18 @@ module Epicbot.Web.Router
   )
 where
 
-import qualified Data.Aeson as Aeson
-import qualified Data.ByteString.Lazy as ByteString
+import Data.Aeson qualified as Aeson
+import Data.ByteString.Lazy qualified as ByteString
 import Data.Text.Lazy (Text)
 import Epicbot.Capability.MonadApp (MonadApp)
 import Epicbot.Data.Slack.InteractivePayload (InteractivePayload)
 import Epicbot.Web.Middleware (Middleware)
-import qualified Epicbot.Web.Middleware.SignatureCheck as SignatureCheck
-import qualified Epicbot.Web.Middleware.SslCheck as SslCheck
-import qualified Epicbot.Web.Service.CommandService as CommandService
-import qualified Epicbot.Web.Service.InteractiveService as InteractiveService
+import Epicbot.Web.Middleware.SignatureCheck qualified as SignatureCheck
+import Epicbot.Web.Middleware.SslCheck qualified as SslCheck
+import Epicbot.Web.Service.CommandService qualified as CommandService
+import Epicbot.Web.Service.InteractiveService qualified as InteractiveService
 import Network.HTTP.Types.Status (status404)
-import qualified Network.URI.Encode as Encode
+import Network.URI.Encode qualified as Encode
 import Web.Scotty.Trans (ActionT, ScottyT, json, matchAny, param, raiseStatus)
 
 middlewares :: MonadApp m => Middleware Text m

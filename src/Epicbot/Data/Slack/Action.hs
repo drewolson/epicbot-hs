@@ -21,7 +21,7 @@ import Data.Aeson
 import Data.Aeson.Types (Parser)
 import Data.Text (Text)
 import Epicbot.Data.Card (Card)
-import qualified Epicbot.Data.Card as Card
+import Epicbot.Data.Card qualified as Card
 import GHC.Generics (Generic)
 
 data ActionType = Button | Checkboxes

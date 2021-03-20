@@ -5,12 +5,12 @@ module Epicbot.Data.Slack.SigningSecret
   )
 where
 
-import qualified Data.Digest.Pure.SHA as SHA
-import qualified Data.Maybe as Maybe
+import Data.Digest.Pure.SHA qualified as SHA
+import Data.Maybe qualified as Maybe
 import Data.Text (Text)
-import qualified Data.Text as Text
-import qualified Data.Text.Lazy as LazyText
-import qualified Data.Text.Lazy.Encoding as LazyText
+import Data.Text qualified as Text
+import Data.Text.Lazy qualified as LazyText
+import Data.Text.Lazy.Encoding qualified as LazyText
 
 newtype SigningSecret = SigningSecret {signingSecret :: Text}
   deriving (Show)

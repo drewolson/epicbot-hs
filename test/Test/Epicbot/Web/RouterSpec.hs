@@ -4,18 +4,18 @@ module Test.Epicbot.Web.RouterSpec
 where
 
 import Data.Aeson (Value, (.:))
-import qualified Data.Aeson as Aeson
+import Data.Aeson qualified as Aeson
 import Data.Aeson.Types (parseMaybe)
 import Data.ByteString.Lazy (ByteString)
-import qualified Data.ByteString.Lazy.UTF8 as ByteString
+import Data.ByteString.Lazy.UTF8 qualified as ByteString
 import Data.Maybe (fromMaybe)
-import qualified Epicbot.Data.Card as Card
-import qualified Epicbot.Data.Slack.InteractivePayload as InteractivePayload
-import qualified Network.URI.Encode as Encode
+import Epicbot.Data.Card qualified as Card
+import Epicbot.Data.Slack.InteractivePayload qualified as InteractivePayload
+import Network.URI.Encode qualified as Encode
 import Network.Wai.Test (simpleBody)
 import Test.Hspec (Spec, describe, it, shouldBe)
 import Test.Hspec.Wai (get, liftIO, postHtmlForm, shouldRespondWith, with)
-import qualified Test.Support.TestApp as TestApp
+import Test.Support.TestApp qualified as TestApp
 import Text.RawString.QQ (r)
 
 decodeAttachments :: ByteString -> [Value]

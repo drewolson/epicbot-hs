@@ -9,7 +9,7 @@ import Data.Aeson (FromJSON, ToJSON)
 import Data.Text (Text)
 import Epicbot.Data.Card (Card)
 import Epicbot.Data.Slack.Action (Action)
-import qualified Epicbot.Data.Slack.Action as Action
+import Epicbot.Data.Slack.Action qualified as Action
 import GHC.Generics (Generic)
 
 newtype InteractivePayload = InteractivePayload

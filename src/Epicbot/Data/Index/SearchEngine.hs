@@ -7,11 +7,11 @@ where
 
 import Data.Ix (Ix)
 import Data.SearchEngine (NoFeatures, SearchConfig (..), SearchRankParameters (..))
-import qualified Data.SearchEngine as SE
+import Data.SearchEngine qualified as SE
 import Data.Text (Text)
-import qualified Data.Text as Text
+import Data.Text qualified as Text
 import Epicbot.Data.Card (Card)
-import qualified Epicbot.Data.Card as Card
+import Epicbot.Data.Card qualified as Card
 
 newtype SearchEngine = SearchEngine
   { searchEngine :: SE.SearchEngine Card Text SearchField NoFeatures

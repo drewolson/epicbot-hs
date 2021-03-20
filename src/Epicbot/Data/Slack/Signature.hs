@@ -7,9 +7,9 @@ where
 
 import Data.Text (Text)
 import Epicbot.Data.Slack.SigningSecret (SigningSecret)
-import qualified Epicbot.Data.Slack.SigningSecret as SigningSecret
+import Epicbot.Data.Slack.SigningSecret qualified as SigningSecret
 import Epicbot.Data.Slack.Timestamp (Timestamp)
-import qualified Epicbot.Data.Slack.Timestamp as Timestamp
+import Epicbot.Data.Slack.Timestamp qualified as Timestamp
 
 newtype Signature = Signature {signature :: Text}
 

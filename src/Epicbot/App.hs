@@ -12,15 +12,15 @@ import Epicbot.Capability.Has (Has (..))
 import Epicbot.Capability.MonadApp (MonadApp)
 import Epicbot.Capability.MonadSignature (MonadSignature (..))
 import Epicbot.Data.Env (Env)
-import qualified Epicbot.Data.Env as Env
+import Epicbot.Data.Env qualified as Env
 import Epicbot.Data.Env.GlobalEnv (GlobalEnv)
 import Epicbot.Data.Index (Index)
 import Epicbot.Data.Slack.Signature (Signature)
-import qualified Epicbot.Data.Slack.Signature as Signature
+import Epicbot.Data.Slack.Signature qualified as Signature
 import Epicbot.Data.Slack.SigningSecret (SigningSecret)
 import Epicbot.Data.Slack.Timestamp (Timestamp)
-import qualified Epicbot.Data.Slack.Timestamp as Timestamp
-import qualified Epicbot.Wiring as Wiring
+import Epicbot.Data.Slack.Timestamp qualified as Timestamp
+import Epicbot.Wiring qualified as Wiring
 
 newtype App a = App {unApp :: ReaderT Env IO a}
   deriving

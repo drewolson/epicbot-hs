@@ -3,8 +3,8 @@ module Test.Epicbot.Data.Slack.TimestampSpec
   )
 where
 
-import qualified Data.Time.Clock.POSIX as Clock
-import qualified Epicbot.Data.Slack.Timestamp as Timestamp
+import Data.Time.Clock.POSIX qualified as Clock
+import Epicbot.Data.Slack.Timestamp qualified as Timestamp
 import Test.Hspec (Spec, describe, it, shouldBe)
 
 spec :: Spec

@@ -5,12 +5,12 @@ where
 
 import Control.Monad.IO.Class (MonadIO)
 import Data.Text.Lazy (Text)
-import qualified Data.Text.Lazy as Text
-import qualified Data.Text.Lazy.Encoding as Text
+import Data.Text.Lazy qualified as Text
+import Data.Text.Lazy.Encoding qualified as Text
 import Epicbot.Capability.MonadSignature (MonadSignature)
-import qualified Epicbot.Capability.MonadSignature as MonadSignature
-import qualified Epicbot.Data.Slack.Signature as Signature
-import qualified Epicbot.Data.Slack.Timestamp as Timestamp
+import Epicbot.Capability.MonadSignature qualified as MonadSignature
+import Epicbot.Data.Slack.Signature qualified as Signature
+import Epicbot.Data.Slack.Timestamp qualified as Timestamp
 import Epicbot.Web.Middleware (Middleware)
 import Network.HTTP.Types.Status (unauthorized401)
 import Web.Scotty.Trans (ActionT, body, header, status, text)

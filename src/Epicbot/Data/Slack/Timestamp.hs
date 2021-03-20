@@ -9,8 +9,8 @@ where
 
 import Control.Monad.IO.Class (MonadIO, liftIO)
 import Data.Text (Text)
-import qualified Data.Text as Text
-import qualified Data.Time.Clock.POSIX as Clock
+import Data.Text qualified as Text
+import Data.Time.Clock.POSIX qualified as Clock
 
 newtype Timestamp = Timestamp {timestamp :: Int}
 

@@ -1,6 +1,6 @@
 module Main where
 
-import qualified Epicbot
+import Epicbot qualified
 
 main :: IO ()
 main = Epicbot.main

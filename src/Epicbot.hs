@@ -3,10 +3,10 @@ module Epicbot
   )
 where
 
-import qualified Epicbot.App as App
-import qualified Epicbot.Data.Env.GlobalEnv as GlobalEnv
-import qualified Epicbot.Web.Router as Router
-import qualified Epicbot.Wiring as Wiring
+import Epicbot.App qualified as App
+import Epicbot.Data.Env.GlobalEnv qualified as GlobalEnv
+import Epicbot.Web.Router qualified as Router
+import Epicbot.Wiring qualified as Wiring
 import Web.Scotty.Trans (scottyT)
 
 main :: IO ()

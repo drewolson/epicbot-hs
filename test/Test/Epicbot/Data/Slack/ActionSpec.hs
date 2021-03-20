@@ -5,7 +5,7 @@ where
 
 import Data.Aeson as Aeson
 import Data.Text (Text)
-import qualified Data.Text as Text
+import Data.Text qualified as Text
 import Epicbot.Data.Slack.Action (Action, ActionType)
 import Generic.Random (genericArbitrarySingleG, genericArbitraryU, (:+) (..))
 import Test.Hspec (Spec, describe, shouldBe)

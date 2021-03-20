@@ -3,10 +3,10 @@ module Test.Epicbot.Html.ParserSpec
   )
 where
 
-import qualified Epicbot.Data.Card as Card
+import Epicbot.Data.Card qualified as Card
 import Epicbot.Data.OnlineStatus (OnlineStatus (..))
-import qualified Epicbot.Html.Parser as Parser
-import qualified Epicbot.Html.Scraper as Scraper
+import Epicbot.Html.Parser qualified as Parser
+import Epicbot.Html.Scraper qualified as Scraper
 import Test.Hspec (Spec, describe, it, shouldBe)
 
 spec :: Spec
