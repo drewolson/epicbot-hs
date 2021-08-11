@@ -1,4 +1,4 @@
-resolver: lts-17.6
+resolver: lts-18.5
 
 packages:
 - .
@@ -8,4 +8,4 @@ extra-deps:
 
 docker:
   enable: false
-  image: haskell:8.10.2-buster
+  image: haskell:8.10.4-buster

@@ -18,7 +18,14 @@ newtype SearchEngine = SearchEngine
   }
 
 data SearchField = NameField
-  deriving (Eq, Ord, Enum, Bounded, Ix, Show)
+  deriving
+    ( Eq,
+      Ord,
+      Enum,
+      Bounded,
+      Ix,
+      Show
+    )
 
 search :: Text -> SearchEngine -> [Text]
 search query SearchEngine {searchEngine} =
