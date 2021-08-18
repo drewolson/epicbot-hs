@@ -17,6 +17,7 @@ dependencies:
 - aeson
 - base >= 4.7 && < 5
 - bytestring
+- casing
 - containers
 - full-text-search
 - generic-lens

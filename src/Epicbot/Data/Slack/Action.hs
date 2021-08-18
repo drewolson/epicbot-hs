@@ -12,37 +12,29 @@ import Data.Aeson
     ToJSON (..),
     Value,
     defaultOptions,
+    genericParseJSON,
     genericToJSON,
-    withObject,
-    withText,
-    (.:),
-    (.:?),
   )
 import Data.Aeson.Types (Parser)
 import Data.Text (Text)
 import Epicbot.Data.Card (Card)
 import Epicbot.Data.Card qualified as Card
 import GHC.Generics (Generic)
+import Text.Casing (quietSnake)
 
 data ActionType = Button | Checkboxes
   deriving (Eq, Show, Generic)
 
+actionTypeJSONOptions :: Options
+actionTypeJSONOptions = defaultOptions {constructorTagModifier = quietSnake}
+
 instance FromJSON ActionType where
   parseJSON :: Value -> Parser ActionType
-  parseJSON = withText "ActionType" $ \case
-    "button" -> pure Button
-    "checkboxes" -> pure Checkboxes
-    _ -> fail "unknown action type"
+  parseJSON = genericParseJSON actionTypeJSONOptions
 
 instance ToJSON ActionType where
   toJSON :: ActionType -> Value
-  toJSON = genericToJSON $ defaultOptions {constructorTagModifier = renameTag}
-    where
-      renameTag :: String -> String
-      renameTag = \case
-        "Button" -> "button"
-        "Checkboxes" -> "checkboxes"
-        tag -> tag
+  toJSON = genericToJSON actionTypeJSONOptions
 
 data Action = Action
   { name :: Maybe Text,
@@ -52,29 +44,20 @@ data Action = Action
   }
   deriving (Eq, Show, Generic)
 
+actionJSONOptions :: Options
+actionJSONOptions =
+  defaultOptions
+    { fieldLabelModifier = filter (/= '\''),
+      omitNothingFields = True
+    }
+
 instance FromJSON Action where
   parseJSON :: Value -> Parser Action
-  parseJSON = withObject "Action" $ \obj -> do
-    name <- obj .:? "name"
-    text <- obj .:? "text"
-    type' <- parseJSON =<< obj .: "type"
-    value <- obj .:? "value"
-
-    pure Action {name, text, type', value}
+  parseJSON = genericParseJSON actionJSONOptions
 
 instance ToJSON Action where
   toJSON :: Action -> Value
-  toJSON =
-    genericToJSON $
-      defaultOptions
-        { fieldLabelModifier = renameType,
-          omitNothingFields = True
-        }
-    where
-      renameType :: String -> String
-      renameType = \case
-        "type'" -> "type"
-        field -> field
+  toJSON = genericToJSON actionJSONOptions
 
 fromCard :: Card -> Action
 fromCard card =

@@ -12,6 +12,7 @@ import Epicbot.Data.Card qualified as Card
 import Epicbot.Data.Slack.Action (Action)
 import Epicbot.Data.Slack.Action qualified as Action
 import GHC.Generics (Generic)
+import Text.Casing (quietSnake)
 
 data Attachment = Attachment
   { actions :: Maybe [Action],
@@ -27,14 +28,8 @@ instance ToJSON Attachment where
     genericToJSON $
       defaultOptions
         { omitNothingFields = True,
-          fieldLabelModifier = renameField
+          fieldLabelModifier = quietSnake
         }
-    where
-      renameField :: String -> String
-      renameField = \case
-        "callbackId" -> "callback_id"
-        "imageUrl" -> "image_url"
-        field -> field
 
 cardButton :: Card -> Attachment
 cardButton card =

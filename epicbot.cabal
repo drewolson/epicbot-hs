@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 90e480f6ccb1fb933a7779acc32eccc7c8cc8f6c7e3fc252e985d221d4ec880c
+-- hash: a718d51612fca3489ed4b4f2e14048d4f5a3994bab52a341d37949a9cde629ef
 
 name:           epicbot
 version:        0.1.0.0
@@ -81,6 +81,7 @@ library
     , aeson
     , base >=4.7 && <5
     , bytestring
+    , casing
     , containers
     , full-text-search
     , generic-lens
@@ -130,6 +131,7 @@ executable epicbot-exe
     , aeson
     , base >=4.7 && <5
     , bytestring
+    , casing
     , containers
     , epicbot
     , full-text-search
@@ -188,6 +190,7 @@ test-suite epicbot-test
     , aeson
     , base >=4.7 && <5
     , bytestring
+    , casing
     , containers
     , epicbot
     , full-text-search

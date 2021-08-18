@@ -13,6 +13,7 @@ import Epicbot.Data.Card qualified as Card
 import Epicbot.Data.Slack.Attachment (Attachment)
 import Epicbot.Data.Slack.Attachment qualified as Attachment
 import GHC.Generics (Generic)
+import Text.Casing (quietSnake)
 
 data ResponseType
   = Ephemeral
@@ -21,13 +22,7 @@ data ResponseType
 
 instance ToJSON ResponseType where
   toJSON :: ResponseType -> Value
-  toJSON = genericToJSON $ defaultOptions {constructorTagModifier = renameTag}
-    where
-      renameTag :: String -> String
-      renameTag = \case
-        "Ephemeral" -> "ephemeral"
-        "InChannel" -> "in_channel"
-        tag -> tag
+  toJSON = genericToJSON $ defaultOptions {constructorTagModifier = quietSnake}
 
 data CommandResponse = CommandResponse
   { attachments :: Maybe [Attachment],
@@ -43,14 +38,8 @@ instance ToJSON CommandResponse where
     genericToJSON $
       defaultOptions
         { omitNothingFields = True,
-          fieldLabelModifier = renameField
+          fieldLabelModifier = quietSnake
         }
-    where
-      renameField :: String -> String
-      renameField = \case
-        "deleteOriginal" -> "delete_original"
-        "responseType" -> "response_type"
-        field -> field
 
 draft :: [Card] -> CommandResponse
 draft cards =
