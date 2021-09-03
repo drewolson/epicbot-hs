@@ -7,13 +7,13 @@ import Epicbot.Data.Card qualified as Card
 import Epicbot.Data.OnlineStatus (OnlineStatus (..))
 import Epicbot.Html.Parser qualified as Parser
 import Epicbot.Html.Scraper qualified as Scraper
-import Test.Hspec (Spec, describe, it, shouldBe)
+import Test.Hspec (Spec, describe, it, parallel, shouldBe)
 
 spec :: Spec
-spec =
-  describe "Epicbot.Html.Parser" $ do
-    describe "parse" $ do
-      it "parses a list of cards" $ do
+spec = parallel do
+  describe "Epicbot.Html.Parser" do
+    describe "parse" do
+      it "parses a list of cards" do
         cards <- Parser.parse <$> Scraper.scrape Offline
 
         length cards `shouldBe` 292

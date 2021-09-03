@@ -31,14 +31,14 @@ parseInteractivePayload = do
 router :: MonadApp m => ScottyT Text m ()
 router = do
   matchAny "/" $
-    middlewares $ do
+    middlewares do
       command <- param "text"
       response <- CommandService.handle command
 
       json response
 
   matchAny "/interactive" $
-    middlewares $ do
+    middlewares do
       payload <- parseInteractivePayload
       result <- InteractiveService.handle payload
 

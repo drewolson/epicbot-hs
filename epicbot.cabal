@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a718d51612fca3489ed4b4f2e14048d4f5a3994bab52a341d37949a9cde629ef
+-- hash: b333714f6a141d44e7c727fffee6070617205e21c0971f320e801a6616d55ee4
 
 name:           epicbot
 version:        0.1.0.0
@@ -60,6 +60,7 @@ library
   hs-source-dirs:
       src
   default-extensions:
+      BlockArguments
       DataKinds
       DeriveGeneric
       FlexibleContexts
@@ -110,6 +111,7 @@ executable epicbot-exe
   hs-source-dirs:
       app
   default-extensions:
+      BlockArguments
       DataKinds
       DeriveGeneric
       FlexibleContexts
@@ -167,6 +169,7 @@ test-suite epicbot-test
   hs-source-dirs:
       test
   default-extensions:
+      BlockArguments
       DataKinds
       DeriveGeneric
       FlexibleContexts

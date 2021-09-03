@@ -39,6 +39,7 @@ dependencies:
 - wai-extra
 
 default-extensions:
+- BlockArguments
 - DataKinds
 - DeriveGeneric
 - FlexibleContexts
