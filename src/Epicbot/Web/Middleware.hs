@@ -5,4 +5,5 @@ where
 
 import Web.Scotty.Trans (ActionT)
 
-type Middleware e m = (ActionT e m () -> ActionT e m ())
+type Middleware e m =
+  ActionT e m () -> ActionT e m ()

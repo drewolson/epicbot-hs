@@ -10,8 +10,8 @@ import Web.Scotty.Trans (text)
 
 call :: Monad m => Middleware Text m
 call next = do
-  value :: Maybe Text <- maybeParam "ssl_check"
+  value <- maybeParam "ssl_check"
 
-  if value == Just "1"
+  if value == Just ("1" :: Text)
     then text "SSL Check OK"
     else next
