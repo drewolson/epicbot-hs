@@ -3,6 +3,7 @@ module Epicbot.Web.Router
   )
 where
 
+import Control.Monad.Trans (MonadIO)
 import Data.Aeson qualified as Aeson
 import Data.ByteString.Lazy qualified as ByteString
 import Data.Text.Lazy (Text)
@@ -17,7 +18,7 @@ import Network.HTTP.Types.Status (status404)
 import Network.URI.Encode qualified as Encode
 import Web.Scotty.Trans (ActionT, ScottyT, json, matchAny, param, raiseStatus)
 
-middlewares :: MonadApp m => Middleware Text m
+middlewares :: (MonadIO m, MonadApp m) => Middleware Text m
 middlewares = SignatureCheck.call . SslCheck.call
 
 parseInteractivePayload :: MonadApp m => ActionT Text m InteractivePayload
@@ -28,7 +29,7 @@ parseInteractivePayload = do
     Nothing -> raiseStatus status404 "not found"
     Just interactivePayload -> pure interactivePayload
 
-router :: MonadApp m => ScottyT Text m ()
+router :: (MonadIO m, MonadApp m) => ScottyT Text m ()
 router = do
   matchAny "/" $
     middlewares do

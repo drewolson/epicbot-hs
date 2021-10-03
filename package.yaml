@@ -25,6 +25,7 @@ dependencies:
 - http-types
 - lens
 - mtl
+- natural-transformation
 - random-shuffle
 - scotty
 - tagsoup
@@ -51,6 +52,7 @@ default-extensions:
 - MultiParamTypeClasses
 - NamedFieldPuns
 - OverloadedStrings
+- RankNTypes
 - ScopedTypeVariables
 - TypeApplications
 - TypeOperators

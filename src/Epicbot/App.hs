@@ -7,6 +7,7 @@ where
 import Control.Monad.IO.Class (MonadIO)
 import Control.Monad.Random.Class (MonadRandom)
 import Control.Monad.Reader (MonadReader, ReaderT, asks, runReaderT)
+import Control.Natural (type (~>))
 import Data.Text (Text)
 import Epicbot.Capability.Has (Has (..))
 import Epicbot.Capability.MonadApp (MonadApp)
@@ -52,7 +53,7 @@ instance Has SigningSecret App where
 
 instance MonadApp App
 
-runApp :: GlobalEnv -> App a -> IO a
+runApp :: GlobalEnv -> App ~> IO
 runApp globalEnv app = do
   requestEnv <- Wiring.buildRequestEnv
   let env = Env.new globalEnv requestEnv

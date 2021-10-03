@@ -5,7 +5,6 @@ module Epicbot.Capability.MonadApp
   )
 where
 
-import Control.Monad.IO.Class (MonadIO)
 import Control.Monad.Random.Class (MonadRandom (..))
 import Control.Monad.Trans.Class (lift)
 import Epicbot.Capability.Has (Has)
@@ -16,7 +15,6 @@ import Web.Scotty.Trans (ActionT, ScottyError)
 
 class
   ( Monad m,
-    MonadIO m,
     MonadRandom m,
     Has Index m,
     Has SigningSecret m,

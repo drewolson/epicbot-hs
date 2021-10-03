@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: b333714f6a141d44e7c727fffee6070617205e21c0971f320e801a6616d55ee4
+-- hash: d3693d943c8edf765d09d961e37924ce45d83d6cd7fd2d98cbc875763810cad2
 
 name:           epicbot
 version:        0.1.0.0
@@ -72,6 +72,7 @@ library
       MultiParamTypeClasses
       NamedFieldPuns
       OverloadedStrings
+      RankNTypes
       ScopedTypeVariables
       TypeApplications
       TypeOperators
@@ -90,6 +91,7 @@ library
     , http-types
     , lens
     , mtl
+    , natural-transformation
     , random-shuffle
     , scotty
     , tagsoup
@@ -123,6 +125,7 @@ executable epicbot-exe
       MultiParamTypeClasses
       NamedFieldPuns
       OverloadedStrings
+      RankNTypes
       ScopedTypeVariables
       TypeApplications
       TypeOperators
@@ -142,6 +145,7 @@ executable epicbot-exe
     , http-types
     , lens
     , mtl
+    , natural-transformation
     , random-shuffle
     , scotty
     , tagsoup
@@ -181,6 +185,7 @@ test-suite epicbot-test
       MultiParamTypeClasses
       NamedFieldPuns
       OverloadedStrings
+      RankNTypes
       ScopedTypeVariables
       TypeApplications
       TypeOperators
@@ -205,6 +210,7 @@ test-suite epicbot-test
     , http-types
     , lens
     , mtl
+    , natural-transformation
     , random-shuffle
     , raw-strings-qq
     , scotty

@@ -7,6 +7,7 @@ where
 
 import Control.Monad.IO.Class (MonadIO)
 import Control.Monad.Random.Class (MonadRandom)
+import Control.Natural (type (~>))
 import Data.Text (Text)
 import Epicbot.Capability.Has (Has (..))
 import Epicbot.Capability.MonadApp (MonadApp)
@@ -47,5 +48,5 @@ instance MonadApp TestApp
 app :: IO Application
 app = scottyAppT runTestApp Router.router
 
-runTestApp :: TestApp a -> IO a
+runTestApp :: TestApp ~> IO
 runTestApp = unTestApp
